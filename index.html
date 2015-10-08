@@ -1,27 +1,92 @@
-<!DOCTYPE html>
 <html>
-	<head>
-		<title>Thiyagesh M | Wordpress Developer</title>
-	</head>
+	<script type="text/javascript">
+	var framesPerSecond = 20;
+	var ballXPos = 50;
+	var ballYPos = 50;
+	var ballRadius = 10;
+	var ballXSpeed = 10;
+	var ballYSpeed = 5;
+	var player1XPos = 0;
+	var playerWidth = 10;
+	var playerHeight = 300;
+	var player2XPos = 790;
+	var movePaddle1Y = 300;
+
+		window.onload = function(){
+			canvas = document.getElementById('gameCanvas');
+			canvasContext = canvas.getContext('2d');
+
+			setInterval(function(){
+				canvasContext.fillStyle = 'black';
+				canvasContext.fillRect(0,0,canvas.width,canvas.height);
+
+				createPlayer(player1XPos,movePaddle1Y,playerWidth,playerHeight,'green');
+				createPlayer(player2XPos,movePaddle1Y,playerWidth,playerHeight,'red');
+				MoveBall();
+				createBall();
+
+			}, 1000/framesPerSecond );
+			function ballReset() {
+				ballXPos = canvas.width/2;
+				ballYPos = canvas.height/2;
+			}
+			function MoveBall(){
+				ballXPos = ballXPos + ballXSpeed;
+				ballYPos = ballYPos + ballYSpeed;
+
+				if(ballXPos < 0 + ((2*ballRadius)+playerWidth)) {
+					if(ballYPos > movePaddle1Y && ballYPos < (movePaddle1Y + playerHeight)) {
+						ballXSpeed = -ballXSpeed;
+					} else {
+						ballXSpeed = -ballXSpeed;
+						ballReset();
+					}
+				}
+				if(ballXPos > canvas.width - ((2*ballRadius)+playerWidth)) {
+					if(ballYPos > movePaddle1Y && ballYPos < (movePaddle1Y + playerHeight)) {
+						ballXSpeed = -ballXSpeed;
+					} else {
+						ballXSpeed = -ballXSpeed;
+						ballReset();
+					}
+					//ballXSpeed = -ballXSpeed;
+				}
+				if(ballYPos < 0 + (2*ballRadius)) {
+					ballYSpeed = -ballYSpeed;
+				}
+				if(ballYPos > canvas.height - (2*ballRadius)) {
+					ballYSpeed = -ballYSpeed;
+				}
+			}
+
+			function createPlayer(xAxis,yAxis,ObjWidth,objHeight,color) {
+				canvasContext.fillStyle = color;
+				canvasContext.fillRect(xAxis,yAxis,ObjWidth,objHeight);
+			}
+			function createBall(){
+				canvasContext.fillStyle = 'yellow';
+				canvasContext.beginPath();
+				canvasContext.arc(ballXPos,ballYPos,ballRadius,0,Math.PI*2,true);
+				canvasContext.fill();
+			}
+			function mouseMovePos(evt) {
+				var rect = canvas.getBoundingClientRect();
+				var root = document.documentElement;
+				var mouseX = evt.clientX - rect.left - root.scrollLeft;
+				var mouseY = evt.clientY - rect.top - root.scrollTop;
+
+				return {
+					x:mouseX,
+					y:mouseY
+				};
+			}
+			canvas.addEventListener('mousemove',function(evt){
+				var mousePos = mouseMovePos(evt);
+				movePaddle1Y = mousePos.y - (playerHeight/2);
+			});
+		}
+	</script>
 	<body>
-		<nav>
-    		<ul>
-        		<li><a href="/">Home</a></li>
-	        	<li><a href="/about">About</a></li>
-        		<li><a href="/cv">CV</a></li>
-        		<li><a href="/blog">Blog</a></li>
-    		</ul>
-		</nav>
-		<div class="container">
-    		<div class="blurb">
-        		<h1>Hi there, I'm Thiyagesh!</h1><a href="/about">Read more about my life...</a></p>
-    		</div><!-- /.blurb -->
-		</div><!-- /.container -->
-		<footer>
-    		<ul>
-        		<li><a href="mailto:thyash11@gmail.com">email</a></li>
-        		<li><a href="https://github.com/thyash11">github.com/thyash11</a></li>
-			</ul>
-		</footer>
+		<canvas id="gameCanvas" width="800" height="800"></canvas>
 	</body>
 </html>
