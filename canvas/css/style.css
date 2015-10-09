@@ -325,6 +325,7 @@ body {
 	padding: 4%;
 }
 .content{
+	margin-top: -110px;
 	background: #ffffff;
 	padding: 4%;
 	border-radius: 4px;
@@ -577,7 +578,6 @@ p.para{
 	font-weight: 400;
 }
 .gallery-grid h4 a {
-	display: block;
 	margin-top: 10px;
 	font-style: italic;
 	font-weight: 400;
@@ -1297,6 +1297,7 @@ h2.resp-accordion {
 .tab_img{
     padding: 0em 0em;
     display: inline-block;
+	width: 100%;
 }
 .img-top {	
 	  position: relative;
