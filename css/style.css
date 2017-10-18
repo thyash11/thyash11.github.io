@@ -67,7 +67,7 @@ html, body {
 /*----------*/
 body {
 	background: url('../images/kodaikanal-near-dolphin-end.jpg') no-repeat scroll;
-	background-size: 100%;
+	background-size: cover;
 	background-position: center;
 }
 .container {
@@ -141,4 +141,19 @@ body {
 }
 .sc-social i {
     padding-top: 25px;
+}
+
+@media only screen and (max-width:767px) {
+	.main-content h1 {
+		font: 40px/50px 'Roboto';
+	}
+	.main-content h2 {
+		font: 20px/30px 'Roboto';
+	}
+	.main-content h2 span {
+		font: 12px/40px 'Roboto';
+	}
+	.main-content h3 {
+		font: 27px/30px 'Roboto';
+	}
 }
