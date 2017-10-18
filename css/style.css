@@ -30,8 +30,6 @@ body {
   font-weight: 400;
   line-height: 1.7;
   color: #333333;
-  overflow-x: visible;
-  overflow-y: visible;
   background: #f9f9f9;
 }
 
@@ -57,18 +55,16 @@ a {
   text-decoration: none;
 }
 
-html, body {
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-}
-
-
 /*----------*/
 body {
 	background: url('../images/kodaikanal-near-dolphin-end.jpg') no-repeat scroll;
 	background-size: cover;
 	background-position: center;
+}
+.main {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 .container {
 	display: table;
@@ -110,7 +106,7 @@ body {
     line-height: 50px;
 	color: #fff;
 	background-color: #a7a7a7;
-    border-radius: 50%;
+	border-radius: 50%;
     width: 100px;
     height: 100px;
     text-align: center;
@@ -118,26 +114,30 @@ body {
 .sc-social:nth-child(1) {
     border-bottom: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
-    top: -20px;
-    left: -20px;
+    border-top-left-radius: 0;
+    top: 0;
+    left: 0;
 }
 .sc-social:nth-child(2) {
     border-bottom: 1px solid #d7d7d7;
     border-left: 1px solid #d7d7d7;
-    top: -20px;
-    right: -20px;
+    border-top-right-radius: 0;
+    top: 0;
+    right: 0;
 }
 .sc-social:nth-child(3) {
     border-top: 1px solid #d7d7d7;
     border-right: 1px solid #d7d7d7;
-    bottom: -20px;
-    left: -20px;
+    border-bottom-left-radius: 0;
+    bottom: 0;
+    left: 0;
 }
 .sc-social:nth-child(4) {
     border-top: 1px solid #d7d7d7;
     border-left: 1px solid #d7d7d7;
-    bottom: -20px;
-    right: -20px;
+    border-bottom-right-radius: 0;
+    bottom: 0;
+    right: 0;
 }
 .sc-social i {
     padding-top: 25px;
@@ -155,5 +155,14 @@ body {
 	}
 	.main-content h3 {
 		font: 27px/30px 'Roboto';
+	}
+	.sc-social {
+		font-size: 25px;
+		line-height: 40px;
+		width: 50px;
+		height: 50px;		
+	}
+	.sc-social i {
+		padding-top: 15px;
 	}
 }
