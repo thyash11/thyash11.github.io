@@ -110,6 +110,10 @@ body {
     width: 100px;
     height: 100px;
     text-align: center;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
 }
 .sc-social:nth-child(1) {
     border-bottom: 1px solid #d7d7d7;
@@ -140,7 +144,12 @@ body {
     right: 0;
 }
 .sc-social i {
-    padding-top: 25px;
+    padding-top: 25%;
+}
+.sc-social:hover {
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
 }
 
 @media only screen and (max-width:767px) {
@@ -161,8 +170,5 @@ body {
 		line-height: 40px;
 		width: 50px;
 		height: 50px;		
-	}
-	.sc-social i {
-		padding-top: 15px;
 	}
 }
